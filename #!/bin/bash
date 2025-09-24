@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Script to perform reconnaissance on a domain and output results in JSON format.
+# Target: v2n2.nic.fail
+
+# --- CONFIG ---
+TARGET_DOMAIN="v2n2.nic.fail"
+
+# --- CHECK DEPENDENCIES ---
+for cmd in dig whois nmap jq; do
+  if ! command -v "$cmd" &> /dev/null; then
+    echo "{\"error\": \"Dependency not found: $cmd. Please install it to continue.\"}"
+    exit 1
+  fi
+done
+
+# --- GATHER DATA ---
+echo "{\"status\": \"Gathering data for $TARGET_DOMAIN...\"}" >&2
+
+# Resolve IP address
+IP_ADDRESS=$(dig +short "$TARGET_DOMAIN" A | head -n 1)
+
+# Run commands and store output
+# Use '|| true' to prevent script exit on non-zero status (e.g., whois not found)
+DIG_A=$(dig "$TARGET_DOMAIN" A +noall +answer)
+DIG_NS=$(dig "$TARGET_DOMAIN" NS +noall +answer)
+DIG_MX=$(dig "$TARGET_DOMAIN" MX +noall +answer)
+WHOIS_DOMAIN=$(whois "$TARGET_DOMAIN" || true)
+NMAP_OUTPUT=$(nmap -F "$IP_ADDRESS" || true) # -F for fast scan of common ports
+WHOIS_IP=$(whois "$IP_ADDRESS" || true)
+
+# --- GENERATE JSON ---
+# Using jq to safely build the JSON object
+jq -n \
+  --arg domain "$TARGET_DOMAIN" \
+  --arg ip_address "$IP_ADDRESS" \
+  --arg dig_a "$DIG_A" \
+  --arg dig_ns "$DIG_NS" \
+  --arg dig_mx "$DIG_MX" \
+  --arg whois_domain "$WHOIS_DOMAIN" \
+  --arg whois_ip "$WHOIS_IP" \
+  --arg nmap_scan "$NMAP_OUTPUT" \
+  '{
+    "timestamp_utc": "'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'",
+    "target_domain": $domain,
+    "resolved_ip": $ip_address,
+    "recon": {
+      "dns_records": {
+        "A": ($dig_a | split("\n") | map(select(. != ""))),
+        "NS": ($dig_ns | split("\n") | map(select(. != ""))),
+        "MX": ($dig_mx | split("\n") | map(select(. != "")))
+      },
+      "port_scan_nmap": $nmap_scan,
+      "whois_info": {
+        "domain": $whois_domain,
+        "ip": $whois_ip
+      }
+    }
+  }'
