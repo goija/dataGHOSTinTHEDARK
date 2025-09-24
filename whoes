@@ -1,0 +1,45 @@
+Here’s the WHOIS and registration information for `v2n2.nic.fail` and its IPv6 address `2a01:8840:19:0:0:0:0:56`:
+
+---
+
+### **1. WHOIS for `v2n2.nic.fail`**
+- **Domain:** `v2n2.nic.fail`
+- **Registry:** Identity Digital Limited (formerly Binky Moon, LLC)
+- **Purpose:** This is a name server for the `.fail` top-level domain (TLD).
+- **WHOIS Server:** `whois.nic.fail`
+- **RDAP Server:** [https://rdap.identitydigital.services/rdap/](https://rdap.identitydigital.services/rdap/)
+- **Note:** The Identity Digital Whois service may no longer support all TLDs directly. For up-to-date information, use the ICANN RDAP lookup tool: [https://lookup.icann.org/](https://lookup.icann.org/).
+
+---
+
+### **2. WHOIS for IPv6 `2a01:8840:19:0:0:0:0:56`**
+- **IP Range:** `2a01:8840::/32`
+- **Organization:** Identity Digital Limited (formerly Afilias Limited)
+- **Country:** Ireland (IE)
+- **Allocation Date:** 2012-07-11
+- **Source:** RIPE NCC (Réseaux IP Européens Network Coordination Centre)
+- **Abuse Contact:** `abuse@identitydigital.services`
+- **Technical Contact:** `tldtech@identity.digital`
+- **Note:** This IP block is used for DNS infrastructure, including name servers for various TLDs managed by Identity Digital.
+
+---
+
+### **How to Access More Details**
+- For real-time WHOIS/RDAP data, use:
+  - [ICANN Lookup](https://lookup.icann.org/)
+  - [RIPE NCC](https://apps.db.ripe.net/search/query.html)
+
+---
+
+### **Summary Table**
+
+
+
+| Resource               | Organization               | Registry/Allocation | Contact/Abuse Email               |
+|------------------------|----------------------------|---------------------|-----------------------------------|
+| v2n2.nic.fail          | Identity Digital Limited    | .fail TLD           | tldtech@identity.digital          |
+| 2a01:8840:19::/56      | Identity Digital Limited    | RIPE NCC (IE)       | abuse@identitydigital.services    |
+
+---
+
+Would you like help running a WHOIS query via command line or interpreting the results further?
