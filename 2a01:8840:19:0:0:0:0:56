@@ -1,0 +1,20 @@
+The domain `v2n2.nic.fail` is one of the name servers for the `.fail` top-level domain (TLD). Here’s what is known about it:
+
+### **Name Server Details**
+- **Host Name:** `v2n2.nic.fail`
+- **IPv4 Address:** `65.22.23.56`
+- **IPv6 Address:** `2a01:8840:19:0:0:0:0:56`
+
+### **Context**
+- `.fail` is a generic top-level domain (gTLD) managed by **Identity Digital Limited** (formerly Binky Moon, LLC).
+- The name servers for `.fail` are distributed across multiple IPs for redundancy and reliability.
+- The delegation record for `.fail` was last updated on **2023-09-12** and the domain was originally registered on **2014-04-17**.
+
+### **Purpose**
+- `.fail` is typically used for domains that want to indicate failure, testing, or error-handling purposes, but it is a fully functional TLD.
+
+### **How to Use This Information**
+- If you are running your reconnaissance script on `v2n2.nic.fail`, it will resolve to the above IP addresses.
+- The script you shared earlier should work as expected, provided the domain is reachable and not blocked by any network policies.
+
+Would you like to proceed with running the script, or do you need help interpreting the results for this domain?
