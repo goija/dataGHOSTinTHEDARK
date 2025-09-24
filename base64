@@ -1,0 +1,10 @@
+De geselecteerde tekst is geen geldige Base64-tekenreeks en kan daarom niet worden gedecodeerd. De aanwezigheid van speciale tekens en NULL-karakters (�) maakt het onmogelijk om het als Base64 te interpreteren.
+
+Hier is in plaats daarvan de Base64-codering van de door u geselecteerde tekst:
+
+Base64 Encoded
+
+dntAAEBAAEAAAAAAANi1rNW22pZAQ7b7AEBA
+
+
+?dns=AAABAAABAAAAAAAAA3d3dwZnb29nbGUDY29tAAABAAE
